@@ -1,0 +1,36 @@
+{
+    "name": "developcreativo/reporte-capacitaciones",
+    "description": "Capacitaciones de Faceits",
+    "keywords": [
+        "laravel", "nova", "permission", "role"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0",
+        "spatie/laravel-permission": "^5.7"
+    },
+    "authors": [
+        {
+            "name": "Kelly Salazar",
+            "email": "developmentcreativo@gmail.com",
+            "homepage": "https://github.com/developcreativo"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Developcreativo\\ReporteCapacitaciones\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Developcreativo\\ReporteCapacitaciones\\ToolServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
