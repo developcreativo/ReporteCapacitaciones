@@ -33,12 +33,12 @@ class ReporteCapacitacionesResource extends NovaResource
 
     public static function label()
     {
-        return __("Capacitaciones Impartidas");
+        return __("Training Provided");
     }
 
     public static function singularLabel()
     {
-        return __("Capacitaciones Impartidas");
+        return __("Training Provided");
     }
 
     public function fields(Request $request): array
@@ -126,7 +126,9 @@ class ReporteCapacitacionesResource extends NovaResource
     public function actions(Request $request): array
     {
         return [
-            (new ExportCapacitacionesImpartidasExcel())
+            (new ExportCapacitacionesImpartidasExcel())->canSee(function (Request $request) {
+                return $request->user()->can(__("Download Training Provided to excel"));
+            })->onlyOnIndex(),
         ];
     }
 
@@ -144,5 +146,32 @@ class ReporteCapacitacionesResource extends NovaResource
     public function authorizedToDelete(Request $request)
     {
         return false;
+    }
+
+    /**
+     * @param Request $request
+     * @return true
+     */
+    public function authorizedToView(Request $request)
+    {
+        return auth()->user()->can(__("View Training Provided"));
+    }
+
+    /**
+     * @param Request $request
+     * @return true
+     */
+    public function authorizeToView(Request $request)
+    {
+        return auth()->user()->can(__("View Training Provided"));
+    }
+
+    /**
+     * @param Request $request
+     * @return bool
+     */
+    public static function authorizedToViewAny(Request $request)
+    {
+        return auth()->user()->can(__("View Training Provided"));
     }
 }
