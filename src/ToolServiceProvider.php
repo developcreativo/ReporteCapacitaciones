@@ -15,7 +15,7 @@ class ToolServiceProvider extends ServiceProvider
      */
     public function boot(Filesystem $filesystem)
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'permissions');
+        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'permissions');
 
         $this->app->booted(function () {
             $this->routes();
